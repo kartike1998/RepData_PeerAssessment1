@@ -1,0 +1,5 @@
+library(plyr)
+library(dplyr)
+nas <- sum(is.na(data$steps))
+mean_vec <- rep_len(mean_int, nrow(data))
+data_imp <- mutate(data, steps = coalesce(steps, mean_vec))
